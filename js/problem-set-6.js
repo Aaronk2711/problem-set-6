@@ -99,7 +99,19 @@ function drawRectangle() {
  */
 
 function drawColoredRectangle() {
-  let
+  let canvas = document.getElementById("canvas3");
+  let context = canvas.getContext("2d");
+  context.clearRect(0, 0, canvas.width, canvas.height);
+
+  let color;
+  while(true) {
+    color = prompt('Please Enter a Valid Color');
+    if(color=="black" || color=="blue" || color=="green" || color=="orange" || color=="purple" || color=="red" || color=="yellow") {
+      break;
+    }
+  }
+  context.fillStyle = color;
+  context.fillRect(10,10,100,50);
 }
 
 /*
