@@ -1,4 +1,5 @@
 /*
+
  * Hello. 2 points.
  *
  * Write a function that draws "Hello, World!" on the canvas. You should
@@ -11,6 +12,9 @@
  */
 
 function sayHello() {
+  let sayHello = document.querySelector('canvas').getContext('2d');
+  sayHello.font = '48px sans-serif';
+  sayHello.strokeText('Hello, World!', 10, 50);
 
 }
 
@@ -38,7 +42,35 @@ function sayHello() {
  */
 
 function drawRectangle() {
+  let canvas = document.getElementById('canvas2');
+  let rectangle = canvas.getContext('2d');
+  let rectWidth;
+  let rectHeight;
+  let rectX;
+  let rectY;
 
+  do {
+    rectWidth = Number(prompt('Enter a width value greater than 1'));
+  }
+  while (rectWidth < 1 || Number.isNaN(rectWidth))
+
+  do {
+    rectHeight = Number(prompt('Enter a height value greater than 1'));
+  }
+  while (rectHeight < 1 || Number.isNaN(rectHeight))
+
+  do {
+    rectY = Number(prompt('Enter a y coordinate greater than 5'));
+  }
+  while (rectY < 5 || Number.isNaN(rectY))
+
+  do {
+    rectX = Number(prompt('Enter a x coordinate greater than 5'));
+  }
+  while (rectX < 5 || Number.isNaN(rectX))
+
+  rectangle.rect(rectX, rectY, rectWidth, rectHeight);
+  rectangle.stroke();
 }
 
 /*
@@ -67,7 +99,7 @@ function drawRectangle() {
  */
 
 function drawColoredRectangle() {
-
+  let
 }
 
 /*
