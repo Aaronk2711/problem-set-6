@@ -114,6 +114,7 @@ function drawColoredRectangle() {
   context.fillRect(10,10,100,50);
 }
 
+
 /*
  * Triangle. 5 points.
  *
@@ -263,5 +264,23 @@ function drawPyramid() {
  */
 
 function drawHouse() {
+
+  let canvas = document.getElementById("canvas3");
+  let context = canvas.getContext("2d");
+  context.clearRect(0, 0, canvas.width, canvas.height);
+
+  let houseColor = prompt('Please Enter a Valid Color');
+  if (color == "brown" || color == "blue" || color == "green" || color = "orange" || color == "purple" || color == "red" || color == "yellow" ||) {
+    break;
+  }
+
+  let doorColor = prompt('Please Enter a Valid Color');
+  if ((color == "brown" || color == "blue" || color == "green" || color = "orange" || color == "purple" || color == "red" || color == "yellow") && (doorColor !== houseColor)) {
+    break;
+  }
+
+  context.fillStyle = color;
+  context.fillRect(10,10,100,50);
+
 
 }
