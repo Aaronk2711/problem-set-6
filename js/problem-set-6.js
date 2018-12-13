@@ -266,21 +266,86 @@ function drawPyramid() {
 function drawHouse() {
 
   let canvas = document.getElementById("canvas3");
-  let context = canvas.getContext("2d");
+  let rectangle = canvas.getContext("2d");
+  let door = canvas.getContext("2d");
+  let window1 = canvas.getContext("2d");
+  let window2 = canvas.getContext("2d");
+  let window3 = canvas.getContext("2d");
+  let window4 = canvas.getContext("2d");
+  let roof = canvas.getContext("2d");
   context.clearRect(0, 0, canvas.width, canvas.height);
 
   let houseColor = prompt('Please Enter a Valid Color');
-  if (color == "brown" || color == "blue" || color == "green" || color = "orange" || color == "purple" || color == "red" || color == "yellow" ||) {
+  if ((houseColor == "brown") || (houseColor == "blue") || (houseColor == "green") || (houseColor = "orange") || (houseColor == "purple") || (houseColor == "red") || (houseColor == "yellow")) {
+}
+
+ switch(houseColor) {
+    case 'brown':
     break;
+
+    case 'blue':
+    break;
+
+    case 'green':
+    break;
+
+    case 'orange':
+    break;
+
+    case 'purple':
+    break;
+
+    case 'red':
+    break;
+
+    case 'yellow':
+    break;
+
+    default:
+    houseColor = prompt('Please Enter a Valid Color');
+    
+
+
   }
 
-  let doorColor = prompt('Please Enter a Valid Color');
-  if ((color == "brown" || color == "blue" || color == "green" || color = "orange" || color == "purple" || color == "red" || color == "yellow") && (doorColor !== houseColor)) {
-    break;
-  }
+let doorColor = prompt('Please enter a valid color');
+while (doorColor = houseColor) {
+  prompt('Please enter a valid color');
+}
 
-  context.fillStyle = color;
-  context.fillRect(10,10,100,50);
+  switch(doorColor) {
+     case 'brown':
+     break;
+
+     case 'blue':
+     break;
+
+     case 'green':
+     break;
+
+     case 'orange':
+     break;
+
+     case 'purple':
+     break;
+
+     case 'red':
+     break;
+
+     case 'yellow':
+     break;
+
+     default:
+     continue;
+
+   }
+
+
+
+  rectangle.fillStyle = houseColor;
+  rectangle.fillRect(150,990,1500,1000);
+  door.fillStyle = doorColor;
+  door.fillRect(825, 0, 50, 100);
 
 
 }
