@@ -211,6 +211,7 @@ function drawStar() {
 function drawStopSign() {
   const canvas = document.getElementById('canvas7');
   const context = canvas.getContext("2d");
+  context.fillStyle = "red";
   context.beginPath();
   context.moveTo(66,10);
   context.lineTo(146,10);
@@ -220,9 +221,12 @@ function drawStopSign() {
   context.lineTo(66,202);
   context.lineTo(10,146);
   context.lineTo(10,66);
-  context.closePath()
+  context.closePath();
+  context.fill();
   context.stroke();
   context.lineWidth = 2;
+  context.font = "20px Arial";
+  context.fillText("Stop Sign", 10, 50);
 }
 
 /*
