@@ -146,6 +146,36 @@ function drawColoredRectangle() {
 
 function drawTriangle() {
 
+  const canvas = document.getElementById("canvas4");
+  const context = canvas.getContext("2d");
+  context.clearRect(0,0,canvas.width,canvas.height);
+
+    side1 = Number(prompt("Please enter side 1"));
+    side2 = Number(prompt("Please enter side 2"));
+    side3 = Number(prompt("Please enter side 3"));
+
+  if (isNaN(side1) || isNaN(side2) || isNaN(side3) == true)
+  {
+    alert("One of your inputs is not a number.");
+  }
+
+  else if ((side1 * side1) + (side2 * side2) != (side3 * side3)) {
+    alert("This is not a valid right triangle");
+  }
+
+  else if (side1 > canvas.height || side2 > canvas.width) {
+    alert("This does not fit on the canvas.")
+  }
+
+  else{
+    context.beginPath();
+    context.moveTo(10,10);
+    context.lineTo(10,10+side1);
+    context.lineTo(10+side2,10+side1);
+    context.closePath();
+    context.stroke();
+}
+
 }
 
 /*
@@ -168,6 +198,40 @@ function drawTriangle() {
  */
 
 function drawSmileyFace() {
+
+  const canvas = document.getElementById('canvas5');
+  const context = canvas.getContext('2d');
+  let radius = Number(prompt("Please enter a radius for your smiley face"));
+
+  if (isNaN(radius) == true) {
+    alert("Please enter a real number");
+  }
+
+  else if (radius > 250) {
+    alert("Your radius is too big for the canvas");
+  }
+
+  else if (radius < 0) {
+    alert("Your radius is too small");
+  }
+
+  else {
+  context.beginPath();
+  context.arc(radius + 10, radius + 10, radius, 0, Math.PI * 2, true); // Outer circle
+  context.stroke();
+
+  context.beginPath();
+  context.arc(radius + 10, radius + 10, radius * .7, 0, Math.PI); // Mouth
+  context.stroke();
+
+  context.beginPath();
+  context.arc(radius + 10 + radius/3, radius + 10 - radius/4, radius * .1, 0, Math.PI * 2, true); // Left eye
+  context.stroke();
+
+  context.beginPath();
+  context.arc(radius + 10 - radius/3, radius + 10 - radius/4, radius * .1, 0, Math.PI * 2, true); // Right eye
+  context.stroke();
+  }
 
 }
 
@@ -224,9 +288,10 @@ function drawStopSign() {
   context.closePath();
   context.fill();
   context.stroke();
-  context.lineWidth = 2;
-  context.font = "20px Arial";
-  context.fillText("Stop Sign", 10, 50);
+  context.lineWidth = 0;
+  context.font = "65px Arial";
+  context.fillStyle = "white";
+  context.fillText("STOP", 18, 130);
 }
 
 /*
