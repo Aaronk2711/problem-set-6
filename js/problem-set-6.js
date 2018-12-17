@@ -209,7 +209,20 @@ function drawStar() {
  */
 
 function drawStopSign() {
-
+  const canvas = document.getElementById('canvas7');
+  const context = canvas.getContext("2d");
+  context.beginPath();
+  context.moveTo(66,10);
+  context.lineTo(146,10);
+  context.lineTo(202,66);
+  context.lineTo(202,146);
+  context.lineTo(146,202);
+  context.lineTo(66,202);
+  context.lineTo(10,146);
+  context.lineTo(10,66);
+  context.closePath()
+  context.stroke();
+  context.lineWidth = 2;
 }
 
 /*
