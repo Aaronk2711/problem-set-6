@@ -42,8 +42,9 @@ function sayHello() {
  */
 
 function drawRectangle() {
-  let canvas = document.getElementById('canvas2');
-  let rectangle = canvas.getContext('2d');
+  const canvas = document.getElementById('canvas2');
+  const rectangle = canvas.getContext("2d");
+  rectangle.clearRect(0, 0, canvas.width, canvas.height);
   let rectWidth;
   let rectHeight;
   let rectX;
@@ -69,8 +70,10 @@ function drawRectangle() {
   }
   while (rectX < 5 || Number.isNaN(rectX))
 
+  rectangle.beginPath();
   rectangle.rect(rectX, rectY, rectWidth, rectHeight);
   rectangle.stroke();
+  rectangle.closePath();
 }
 
 /*
@@ -201,6 +204,7 @@ function drawSmileyFace() {
 
   const canvas = document.getElementById('canvas5');
   const context = canvas.getContext('2d');
+  context.clearRect(0, 0, canvas.width, canvas.height);
   let radius = Number(prompt("Please enter a radius for your smiley face"));
 
   if (isNaN(radius) == true) {
@@ -313,6 +317,29 @@ function drawStopSign() {
  */
 
 function drawPyramid() {
+  const canvas = document.getElementById("canvas8");
+  const context = canvas.getContext("2d");
+  context.clearRect(0, 0, canvas.width, canvas.height);
+  let length = Number(prompt("Please enter a valid side length"));
+  let x = 10;
+  let y = canvas.height - 10;
+  let i = 0;
+  let line = 1;
+  while (i < 5) {
+    for (let j = line; j <=5; j +=1) {
+
+      context.rect(x, y - length, length, length);
+      context.stroke();
+      x += length;
+    }
+    x = 10 + (length/2) * line;
+    y = y-length;
+    line +=1;
+    i +=1;
+  }
+
+  context.beginPath();
+  context.closePath();
 
 }
 
@@ -360,7 +387,7 @@ function drawHouse() {
 
   while(true){
   doorColor=prompt("Please enter a valid color for your front door");
-  houseColor=prompt("Please enter a valid color for your front door");
+  houseColor=prompt("Please enter a valid color for your house");
   if((doorColor=="brown" || doorColor=="blue" || doorColor=="green" || doorColor=="orange" || doorColor=="purple" || doorColor=="red" || doorColor=="yellow")
   && (houseColor=="brown" || houseColor=="blue" || houseColor=="green" || houseColor=="orange" || houseColor=="purple" || houseColor=="red" || houseColor=="yellow")) {
     break;
