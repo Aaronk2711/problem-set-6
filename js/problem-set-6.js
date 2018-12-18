@@ -43,8 +43,8 @@ function sayHello() {
 
 function drawRectangle() {
   const canvas = document.getElementById('canvas2');
-  const rectangle = canvas.getContext("2d");
-  rectangle.clearRect(0, 0, canvas.width, canvas.height);
+  const context = canvas.getContext("2d");
+  context.clearRect(0, 0, canvas.width, canvas.height);
   let rectWidth;
   let rectHeight;
   let rectX;
@@ -70,10 +70,10 @@ function drawRectangle() {
   }
   while (rectX < 5 || Number.isNaN(rectX))
 
-  rectangle.beginPath();
-  rectangle.rect(rectX, rectY, rectWidth, rectHeight);
-  rectangle.stroke();
-  rectangle.closePath();
+  context.beginPath();
+  context.rect(rectX, rectY, rectWidth, rectHeight);
+  context.stroke();
+  context.closePath();
 }
 
 /*
@@ -102,8 +102,8 @@ function drawRectangle() {
  */
 
 function drawColoredRectangle() {
-  let canvas = document.getElementById("canvas3");
-  let context = canvas.getContext("2d");
+  const canvas = document.getElementById("canvas3");
+  const context = canvas.getContext("2d");
   context.clearRect(0, 0, canvas.width, canvas.height);
 
   let color;
@@ -258,6 +258,37 @@ function drawSmileyFace() {
  */
 
 function drawStar() {
+  const canvas = document.getElementById("canvas6");
+  const context = canvas.getContext("2d");
+  let bigRadius = Number(prompt("Please enter the outer radius of the star"));
+  let smallRadius = Number(prompt("Please enter the inner radius of the star"));
+  let i = 0;
+  let angleChange = 0;
+  context.clearRect(0, 0, canvas.width, canvas.height);
+
+
+  if (isNaN(bigRadius) || isNaN(smallRadius)) {
+      alert("Please enter real numbers as your radii");
+    }
+
+  else if (smallRadius > bigRadius) {
+    alert("Your outer radius must be larger than your inner radius")
+  }
+
+  else {
+    context.beginPath();
+    context.moveTo(125, 125 - bigRadius);
+    while (i < 5) {
+      context.lineTo(Math.cos(1.3 * Math.PI - angleChange) * smallRadius + 125, Math.sin(1.3 * Math.PI - angleChange) * smallRadius + 125);
+      context.lineTo(Math.cos(1.1 * Math.PI - angleChange) * bigRadius + 125, Math.sin(1.1 * Math.PI - angleChange) * bigRadius + 125);
+      angleChange = angleChange + (0.4 * Math.PI);
+      i = i + 1;
+    }
+context.closePath();
+context.stroke();
+
+  }
+
 
 }
 
